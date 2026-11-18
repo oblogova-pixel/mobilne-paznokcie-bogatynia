@@ -39,3 +39,11 @@ header.wrap{height:auto;min-height:116px}.reference-cta{justify-content:center!i
 #booking-dialog .booking-bar .dialog-close{position:static;width:36px;height:36px;font-size:24px;line-height:1;background:#fff1f7;flex:none}
 #booking-frame{flex:1;width:100%;border:0;display:block;background:#f5d3e1}
 @media(max-width:600px){#booking-dialog{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0}}
+
+/* Название в шапке и подвале */
+header .brand>span{font-family:'Playfair Display',Georgia,serif!important;font-style:italic;font-weight:700;font-size:30px!important;line-height:1.05;color:#ea008f;letter-spacing:-.3px!important}
+header .brand>span>span{font-family:'Playfair Display',Georgia,serif;font-style:normal;font-weight:600;font-size:17px;color:#111;letter-spacing:3px!important;text-transform:uppercase;margin-top:4px}
+footer .brand>span{font-family:'Playfair Display',Georgia,serif!important;font-style:italic;font-weight:700}
+footer .brand>span>span{font-family:'Playfair Display',Georgia,serif;font-style:normal;font-weight:600}
+@media(max-width:600px){header .brand>span{font-size:22px!important}header .brand>span>span{font-size:13px;letter-spacing:2px!important}}
+@media(max-width:390px){header .brand>span{font-size:19px!important}header .brand>span>span{font-size:11px}}
