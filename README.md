@@ -19,7 +19,7 @@ Otwórz http://localhost:8000.
 - `app.js` — formularz, galeria oraz informacja o cookies
 - `assets/` — zdjęcia, tła, logo i favicon
 
-Formularz zapisu jest demonstracyjny i nie wysyła zgłoszeń. Integracja z Telegramem pozostaje do wdrożenia. Przyciski telefonu i linki do mediów społecznościowych działają.
+Formularz zapisu otwiera się w oknie (`#booking-dialog`) i osadza formularz rezerwacji online z Google Apps Script. Zgłoszenia trafiają do arkusza Google, serwisu dla właścicielki i do Telegramu. Przyciski telefonu i linki do mediów społecznościowych działają.
 
 Opublikowana strona: https://mobilne-paznokcie-wiktoria-bogatynia.oblogova.chatgpt.site/
 

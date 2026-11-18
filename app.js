@@ -1,12 +1,8 @@
 const dialog=document.querySelector('#lightbox');
 document.querySelectorAll('.photo').forEach(button=>button.addEventListener('click',()=>{document.querySelector('#large-photo').src=button.dataset.src;document.querySelector('#large-photo').alt=button.querySelector('img').alt;document.querySelector('#photo-title').textContent=button.dataset.title;dialog.showModal()}));
 document.querySelector('#close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
-const date=document.querySelector('#date');const now=new Date();date.min=[now.getFullYear(),String(now.getMonth()+1).padStart(2,'0'),String(now.getDate()).padStart(2,'0')].join('-');
-date.addEventListener('input',()=>{date.setCustomValidity(date.value&&new Date(date.value+'T12:00:00').getDay()===6?'W soboty nie pracuję. Wybierz inny dzień.':'')});
-document.querySelector('#booking').addEventListener('submit',e=>{e.preventDefault();const status=document.querySelector('#form-status');status.hidden=false;status.textContent='To jest podgląd formularza. Twoje zapytanie nie zostało wysłane. Możliwość zapisu pojawi się po uruchomieniu strony.';status.focus()});
-
 const bookingDialog=document.querySelector('#booking-dialog');
-document.querySelectorAll('a[href="#kontakt"]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();document.querySelector('#form-status').hidden=true;bookingDialog.showModal();document.body.style.overflow='hidden'}));
+document.querySelectorAll('a[href="#kontakt"]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();const frame=document.querySelector('#booking-frame');if(!frame.src)frame.src=frame.dataset.src;bookingDialog.showModal();document.body.style.overflow='hidden'}));
 document.querySelector('#booking-close').addEventListener('click',()=>bookingDialog.close());
 bookingDialog.addEventListener('click',e=>{if(e.target===bookingDialog){const r=bookingDialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)bookingDialog.close()}});
 bookingDialog.addEventListener('close',()=>{document.body.style.overflow=''});

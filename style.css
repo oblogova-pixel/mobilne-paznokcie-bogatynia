@@ -30,3 +30,12 @@ header.wrap{height:auto;min-height:116px}.reference-cta{justify-content:center!i
 @media(max-width:390px){header .brand{font-size:13px;gap:6px}header .brand img{width:42px;height:42px}.phone-number{font-size:12px}header nav{gap:14px}}
 
 .hygiene-section{background-color:#fff}.hygiene-content h2{max-width:48%}.hygiene-content p{max-width:37%}@media(max-width:700px){.hygiene-section,.hygiene-content{background-color:#fff}.hygiene-content{background-image:none}.hygiene-content h2,.hygiene-content p{max-width:none}}
+
+/* Formularz rezerwacji online (Google Apps Script) */
+#booking-dialog{width:900px;max-width:calc(100vw - 28px);height:min(92dvh,880px);max-height:92dvh;padding:0;overflow:hidden;background:#f5d3e1;display:none;flex-direction:column}
+#booking-dialog[open]{display:flex}
+#booking-dialog .booking-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 10px 22px;background:#fff;border-bottom:1px solid #f3d5e3;flex:none}
+#booking-dialog .booking-bar strong{font-size:15px;font-weight:600}
+#booking-dialog .booking-bar .dialog-close{position:static;width:36px;height:36px;font-size:24px;line-height:1;background:#fff1f7;flex:none}
+#booking-frame{flex:1;width:100%;border:0;display:block;background:#f5d3e1}
+@media(max-width:600px){#booking-dialog{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0}}
