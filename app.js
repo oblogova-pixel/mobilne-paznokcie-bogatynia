@@ -2,7 +2,15 @@ const dialog=document.querySelector('#lightbox');
 document.querySelectorAll('.photo').forEach(button=>button.addEventListener('click',()=>{document.querySelector('#large-photo').src=button.dataset.src;document.querySelector('#large-photo').alt=button.querySelector('img').alt;document.querySelector('#photo-title').textContent=button.dataset.title;dialog.showModal()}));
 document.querySelector('#close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
 const bookingDialog=document.querySelector('#booking-dialog');
-document.querySelectorAll('a[href="#kontakt"]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();const frame=document.querySelector('#booking-frame');if(!frame.src)frame.src=frame.dataset.src;bookingDialog.showModal();document.body.style.overflow='hidden'}));
+// Na telefonach i w przeglądarkach Instagram/Facebook formularz otwiera się jako osobna strona
+// (wbudowane przeglądarki aplikacji nie wyświetlają formularza Google w okienku).
+const bookingUA=navigator.userAgent||'';
+const bookingInApp=/Instagram|FBAN|FBAV|FB_IAB|FBIOS|Messenger|Line\/|TikTok|musical_ly|Snapchat|Twitter|Pinterest|; wv\)/i.test(bookingUA);
+const bookingSrc=/Instagram/i.test(bookingUA)?'instagram':/FBAN|FBAV|FB_IAB|FBIOS|Messenger/i.test(bookingUA)?'facebook':'strona';
+const bookingUrl=document.querySelector('#booking-frame').dataset.src.replace('src=strona','src='+bookingSrc);
+document.querySelectorAll('a[href="#kontakt"]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();
+  if(bookingInApp||window.matchMedia('(max-width:700px)').matches){location.href=bookingUrl;return}
+  const frame=document.querySelector('#booking-frame');if(!frame.src)frame.src=frame.dataset.src;bookingDialog.showModal();document.body.style.overflow='hidden'}));
 document.querySelector('#booking-close').addEventListener('click',()=>bookingDialog.close());
 bookingDialog.addEventListener('click',e=>{if(e.target===bookingDialog){const r=bookingDialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)bookingDialog.close()}});
 bookingDialog.addEventListener('close',()=>{document.body.style.overflow=''});

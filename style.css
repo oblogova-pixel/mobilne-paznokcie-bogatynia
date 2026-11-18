@@ -47,3 +47,9 @@ footer .brand>span{font-family:'Playfair Display',Georgia,serif!important;font-s
 footer .brand>span>span{font-family:'Playfair Display',Georgia,serif;font-style:normal;font-weight:600}
 @media(max-width:600px){header .brand>span{font-size:22px!important}header .brand>span>span{font-size:13px;letter-spacing:2px!important}}
 @media(max-width:390px){header .brand>span{font-size:19px!important}header .brand>span>span{font-size:11px}}
+
+/* Formularz: przycisk zamknięcia i link „w nowej karcie” */
+#booking-dialog .booking-bar .dialog-close{color:var(--ink);-webkit-appearance:none;appearance:none;border:0;cursor:pointer}
+#booking-dialog .booking-bar strong{margin-right:auto}
+#booking-dialog .booking-open{font-size:12.5px;color:#75646d;text-decoration:underline;white-space:nowrap}
+@media(max-width:700px){#booking-dialog .booking-open{display:none}}
